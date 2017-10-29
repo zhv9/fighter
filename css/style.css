@@ -79,7 +79,8 @@ body{
 /* ui默认隐藏 */
 .ui-index, 
 .ui-rule, 
-.ui-setting{
+.ui-setting,
+.ui-score{
     display: none;
 }
 
@@ -91,5 +92,8 @@ body{
     display: block;
 }
 [data-status="rule"] .ui-rule{
+    display: block;
+}
+[data-status="score"] .ui-score{
     display: block;
 }

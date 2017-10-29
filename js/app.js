@@ -1,6 +1,6 @@
 // 常用的元素和变量
 var $body = $(document.body);
-var score = 0;
+var scoreText = document.getElementById('score');
 // 画布相关
 var $canvas = $('#game');  // 通过id为game来获取canvas
 var canvas = $canvas.get(0); //获取canvas数组中的第一个。
@@ -63,6 +63,11 @@ function bindEvent() {
   $body.on('click', '.js-confirm-rule', function() {
     $body.attr('data-status', 'index');
   });
+  // 点击确认分数
+  $body.on('click', '.js-confirm-score', function() {
+    $body.attr('data-status', 'index');
+  });
+
 }
 
 
@@ -185,6 +190,8 @@ var GAME = {
               enemy.live -= 1;
               if (enemy.live === 0) {
                 enemy.booming();
+                // 消灭敌人时加分
+                this.score += enemy.score;
               }
             }
             break;
@@ -268,7 +275,8 @@ var GAME = {
     var enemySpeed = opts.enemySpeed;
     var enemyIcon = resourceHelper.getImage('enemySmallIcon');
     var enemyBoomIcon = resourceHelper.getImage('enemySmallBoomIcon');
-  
+    // 小飞机分数
+    var enemyScore = opts.enemySmallScore;
   
     var enemyLive = 1; 
   
@@ -279,6 +287,7 @@ var GAME = {
       enemyBoomIcon = resourceHelper.getImage('enemyBigBoomIcon');
       enemySpeed = opts.enemySpeed * 0.6;
       enemyLive = 10;
+      enemyScore = opts.enemyBigScore;
     } 
   
     // 综合元素的参数
@@ -291,7 +300,8 @@ var GAME = {
       height: enemySize.height,
       speed: enemySpeed,
       icon: enemyIcon,
-      boomIcon: enemyBoomIcon
+      boomIcon: enemyBoomIcon,
+      score: enemyScore
     }
   
     // 怪兽的数量不大于最大值则新增
@@ -302,7 +312,12 @@ var GAME = {
     // console.log(enemies);
   },
   end: function() {
-    alert('游戏结束');
+    // alert('游戏结束');
+    // 获取分数
+    // this.score = 1;
+    // 在界面上显示分数
+    scoreText.innerHTML = this.score;
+    $body.attr('data-status', 'score');
   },
   draw: function() {
     this.enemies.forEach(function(enemy) {

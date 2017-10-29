@@ -18,10 +18,14 @@ var CONFIG = {
     width: 54,
     height: 40
   },
+  // 小飞机分数
+  enemySmallScore: 100,
   enemyBigSize: {
     width: 130,
     height: 100
   },
+  // 大飞机分数
+  enemyBigScore:1000,
   bulletSpeed: 10, // 默认子弹的移动速度
   resources: {
     images: [
