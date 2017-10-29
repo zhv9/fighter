@@ -54,9 +54,18 @@ function bindEvent() {
 
   // 点击确认设置按钮
   $body.on('click', '.js-confirm-setting', function() {
+    settingMusic = document.getElementById('setting-music').value;
+    settingBackground = document.getElementById('setting-bg').value;
+    settingPlane = document.getElementById('setting-plane').value;
+    CONFIG.planeType = settingPlane;
+    CONFIG.backgroundImage = settingBackground;
+    CONFIG.music = settingMusic;
+    document.getElementById('music').src = settingMusic;
+    // document.body.style.backgroundImage = 'url('+ settingBackground + ')';
+    document.body.style.backgroundImage = 'url('+ settingBackground + ')';
     $body.attr('data-status', 'index');
     // 设置游戏
-    // GAME.init();
+    GAME.init(CONFIG);
   });
 
   // 点击我知道了规则的按钮
@@ -119,7 +128,7 @@ var GAME = {
       bulletSize: opts.bulletSize, 
       bulletSpeed: opts.bulletSpeed, 
       // 图标相关
-      icon: resourceHelper.getImage('bluePlaneIcon'),
+      icon: resourceHelper.getImage(opts.planeType),
       bulletIcon: resourceHelper.getImage('fireIcon'),
       boomIcon: resourceHelper.getImage('enemyBigBoomIcon')
     });

@@ -9,6 +9,7 @@
 </head>
 <body data-status="index">
         <canvas id="game"></canvas>
+        <audio id="music" src="sound/music.mp3"></audio>
         <div class="ui-index">
           <h1>飞机大作战</h1>
           <div class="btn-group">
@@ -28,17 +29,17 @@
             <li class="setting">
               <span class="setting-title">音乐设置</span>
               <select id="setting-music">
-                <option value="1">开启音乐</option>
-                <option value="0">关闭音乐</option>
+                <option value="./sound/music.mp3">开启音乐</option>
+                <option value="">关闭音乐</option>
               </select>
             </li>
             <li class="setting">
               <span class="setting-title">背景设置</span>
               <select id="setting-bg">
-                <option value="1">夜袭基地</option>
-                <option value="2">迷失古迹</option>
-                <option value="3">原始森林</option>
-                <option value="4">爆裂火山</option>
+                <option value="./img/bg_1.jpg">夜袭基地</option>
+                <option value="./img/bg_2.jpg">迷失古迹</option>
+                <option value="./img/bg_3.jpg">原始森林</option>
+                <option value="./img/bg_4.jpg">爆裂火山</option>
               </select>
             </li>
             <li class="setting">

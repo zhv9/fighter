@@ -3,6 +3,8 @@
  * @type {Object}
  */
 var CONFIG = {
+  backgroundImage: 'bg1',
+  music: 'gameMusic',
   planeSize: {
     width: 60,
     height: 45
@@ -49,6 +51,18 @@ var CONFIG = {
       },
       { src: './img/boom_small.png',
         name: 'enemySmallBoomIcon'
+      },
+      { src: './img/bg_1.jpg',
+        name: 'bg1'
+      },
+      { src: './img/bg_2.jpg',
+        name: 'bg2'
+      },
+      { src: './img/bg_3.jpg',
+        name: 'bg3'
+      },
+      { src: './img/bg_4.jpg',
+        name: 'bg4'
       }
     ],
     sounds: [
@@ -57,7 +71,7 @@ var CONFIG = {
         name: 'shootSound'
       },
       { src: './sound/music.mp3',
-        name: 'gameSound'
+        name: 'gameMusic'
       },
       { src: './sound/die.mp3',
         name: 'dieSound'
